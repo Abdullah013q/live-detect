@@ -1,0 +1,27 @@
+# Virtual Environment (Crucial - never push this!)
+.venv/
+venv/
+ENV/
+
+# Python caching
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Streamlit specific
+.streamlit/
+
+# AI & Computer Vision (Ultralytics / YOLO)
+# Hides downloaded model weights (e.g., yolov8n.pt) so you don't upload huge files
+*.pt
+*.onnx
+runs/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# install in 
+# opencv-python-headless==4.10.0.84
