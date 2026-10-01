@@ -5,9 +5,9 @@ import streamlit as st
 # =======================================================
 # 🚨 CONFIGURE YOUR TELEGRAM CREDENTIALS HERE 🚨
 # =======================================================
-TELEGRAM_BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"
+TELEGRAM_BOT_TOKEN = "8709997524:AAGkz1J_o9hTLuj_sASWx1rWaF04TpKKcMo"
 TELEGRAM_CHAT_ID = (
-    "YOUR_GROUP_ID_HERE"  # Must include minus sign, e.g., "-10023456789"
+    "-1003385021074"  # Must include minus sign, e.g., "-10023456789"
 )
 
 # Set page configuration
