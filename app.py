@@ -94,19 +94,20 @@ def video_frame_callback(frame):
     return frame.from_ndarray(annotated_img, format="bgr24")
 
 
-# Initialize Live Video Component
+# 5. Build WebRTC Secure Interface
 webrtc_streamer(
-    key="yolov8-alert-system",
+    key="yolov8-live-group-security",
     mode=WebRtcMode.SENDRECV,
     rtc_configuration={
         "iceServers": [
-            {"urls": ["stun:://google.com"]},
-            {"urls": ["stun:://google.com"]},
+            {"urls": "stun:://google.com"},
+            {"urls": "stun:://google.com"},
         ]
-    },
+    },  # Cleaned public network routing format
     video_frame_callback=video_frame_callback,
     media_stream_constraints={"video": True, "audio": False},
-    async_processing=True,
+    async_processing=True,  # Decouples video UI elements from computation
 )
+
 
 st.caption("Click **Start** to run the security alert system.")
