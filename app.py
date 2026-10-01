@@ -1,14 +1,10 @@
 import io
+import os
 import requests
 import streamlit as st
 
-# =======================================================
-# 🚨 CONFIGURE YOUR TELEGRAM CREDENTIALS HERE 🚨
-# =======================================================
-TELEGRAM_BOT_TOKEN = "8709997524:AAGkz1J_o9hTLuj_sASWx1rWaF04TpKKcMo"
-TELEGRAM_CHAT_ID = (
-    "-1003385021074"  # Must include minus sign, e.g., "-10023456789"
-)
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 
 # Set page configuration
 st.set_page_config(
