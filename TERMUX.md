@@ -1,8 +1,9 @@
 # Android / Termux
 
-Use `mobile_live.py` for the phone workflow. It receives live camera frames from
-the Android browser, runs YOLO inference in the Python process, saves MP4 clips
-while a person is visible, and sends clips to Telegram after the person leaves.
+Use `app.py` for the phone workflow. The browser sends camera frames to the
+Python process over a same-origin WebSocket (no STUN server). Images and clips
+are saved in browser IndexedDB and can be exported to device storage. Telegram
+alerts are sent after a detected person leaves.
 `local_test.py` uses a desktop webcam and OpenCV display window, so it is not the
 Android entry point.
 
@@ -67,12 +68,12 @@ it also requires a desktop-style camera and display.
 Start the live mobile app from the project directory:
 
 ```sh
-uvicorn mobile_live:app --host 127.0.0.1 --port 8501
+uvicorn app:app --host 127.0.0.1 --port 8501
 ```
 
 Open `http://127.0.0.1:8501` in the Android browser, press **Start camera**, and
-allow camera access. Keep the terminal session running. Recordings are saved in
-`recordings/` in the project directory.
+allow camera access. Keep the terminal session running. Media stays in that
+browser's IndexedDB until deleted; use **Save to device** to export files.
 
 ## Optional Telegram alerts
 
@@ -87,5 +88,5 @@ export TELEGRAM_BOT_TOKEN
 export TELEGRAM_CHAT_ID="your-chat-id"
 ```
 
-Keep that shell session open while Streamlit runs. Telegram alerts are optional;
+Keep that shell session open while Uvicorn runs. Telegram alerts are optional;
 the detector works without them.
